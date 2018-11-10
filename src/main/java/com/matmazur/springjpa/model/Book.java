@@ -13,7 +13,6 @@ public class Book {
     private String author;
     private String isbn;
 
-
     @Override
     public String toString() {
         return "Book{" +

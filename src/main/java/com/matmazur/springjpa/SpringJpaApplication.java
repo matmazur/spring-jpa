@@ -19,6 +19,5 @@ public class SpringJpaApplication {
 
         System.out.println(dao.addBook(book));
         System.out.println(dao.getById(1L));
-
     }
 }

@@ -1,13 +1,13 @@
 package com.matmazur.springjpa.DAO;
 
 import com.matmazur.springjpa.model.Book;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-@Component
+@Repository
 public class BookDAOImpl implements BookDAO {
 
     @PersistenceContext
@@ -22,7 +22,6 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public Book getById(Long id) {
-
         return entityManager.find(Book.class, id);
     }
 }
