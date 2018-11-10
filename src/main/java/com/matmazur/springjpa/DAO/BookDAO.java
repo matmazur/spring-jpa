@@ -5,5 +5,6 @@ import com.matmazur.springjpa.model.Book;
 public interface BookDAO {
 
     Long addBook(Book book);
-    Book getById(Long long);
+
+    Book getById(Long id);
 }
