@@ -15,14 +15,24 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     @Transactional
-    public Long addBook(Book book) {
+    public Long add(Book book) {
         System.out.println("Transaction passes");
         entityManager.persist(book);
         return book.getBookId();
     }
 
     @Override
-    public Book getById(Long id) {
+    public Book get(Long id) {
         return entityManager.find(Book.class, id);
+    }
+
+    @Override
+    public Long update(Book book) {
+        return null;
+    }
+
+    @Override
+    public Long delete(Long id) {
+        return null;
     }
 }
