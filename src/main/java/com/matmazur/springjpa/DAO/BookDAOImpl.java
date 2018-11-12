@@ -28,11 +28,14 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public Long update(Book book) {
-        return null;
+        entityManager.merge(book);
+        return book.getBookId();
     }
 
     @Override
     public Long delete(Long id) {
-        return null;
+        Book book = entityManager.find(Book.class,id);
+        entityManager.remove(book);
+        return book.getBookId();
     }
 }
