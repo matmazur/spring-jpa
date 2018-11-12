@@ -14,6 +14,14 @@ public class Book {
     @Column(nullable = false, length = 13, unique = true)
     private String isbn;
 
+
+
+
+
+
+
+
+
     @Override
     public String toString() {
         return "Book{" +

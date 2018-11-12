@@ -16,21 +16,15 @@ public class SpringJpaApplication {
         BookDAO dao = context.getBean(BookDAO.class);
 
         Book book1 = new Book("Red Dead Redemption", "Sergio Leone", "324567");
-        Book book2 = new Book("Red Dead Redemption", "Sergio Leone", "324567");
+        Book book2 = new Book("Red Dead Redemption 2", "Sergio Canzano", "12456743");
+        book2.setBookId(1L);
 
+        dao.add(book1);
+        System.out.println(dao.get(1L));
+        dao.update(book2);
+        System.out.println(dao.get(1L));
+        dao.delete(1L);
+        System.out.println(dao.get(1L));
 
-        System.out.println(dao.addBook(book1));
-        System.out.println(dao.addBook(book2));
-
-        System.out.println("STEETE");
-//        Book b1 = dao.getById(1L);
-//        Book b2 = dao.getById(2L);
-//
-//        if (b1==null){
-//            System.out.println(b1);
-//        }
-//        if (b2==null){
-//            System.out.println(b2);
-//        }
     }
 }

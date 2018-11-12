@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+@Transactional
 @Repository
 public class BookDAOImpl implements BookDAO {
 
@@ -14,7 +15,6 @@ public class BookDAOImpl implements BookDAO {
     EntityManager entityManager;
 
     @Override
-    @Transactional
     public Long add(Book book) {
         System.out.println("Transaction passes");
         entityManager.persist(book);
