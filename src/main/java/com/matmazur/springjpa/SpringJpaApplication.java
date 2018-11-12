@@ -17,16 +17,17 @@ public class SpringJpaApplication {
 
         ConfigurableApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
 
-
         UserDAOImpl dao = context.getBean(UserDAOImpl.class);
-
-
 
         User user = new User("mikael","BIG80082","Mike@gmail.gov");
         UserDetails details = new UserDetails("Mike","Broftlotzki");
         user.setUserDetails(details);
 
         dao.add(user);
+
+        System.out.println(dao.get(1L));
+
+        System.out.println(dao.get(1L).getUserDetails().getUser().getPassword());
 
 
 

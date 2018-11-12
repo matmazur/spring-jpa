@@ -67,4 +67,15 @@ public class User {
     public void setUserDetails(UserDetails userDetails) {
         this.userDetails = userDetails;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", userDetails=" + userDetails +
+                '}';
+    }
 }

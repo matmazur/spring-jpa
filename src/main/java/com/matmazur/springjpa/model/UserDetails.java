@@ -14,6 +14,8 @@ public class UserDetails {
     private Long id;
     private String name;
     private String surname;
+    @OneToOne(mappedBy = "userDetails")
+    private User user;
 
 
     public UserDetails(String name, String surname) {
@@ -71,5 +73,13 @@ public class UserDetails {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
