@@ -1,6 +1,6 @@
 package com.matmazur.springjpa;
 
-import com.matmazur.springjpa.DAO.BookDAO;
+import com.matmazur.springjpa.DAO.BookDAOImpl;
 import com.matmazur.springjpa.model.Book;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,8 +13,8 @@ public class SpringJpaApplication {
 
         ConfigurableApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
 
-        BookDAO dao = context.getBean(BookDAO.class);
 
+        BookDAOImpl dao = context.getBean(BookDAOImpl.class);
         Book book1 = new Book("Red Dead Redemption", "Sergio Leone", "324567");
         Book book2 = new Book("Red Dead Redemption 2", "Sergio Canzano", "12456743");
         book2.setBookId(1L);
