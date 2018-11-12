@@ -15,11 +15,35 @@ public class Book {
     private String isbn;
 
 
+    @PrePersist
+    public void prePersist() {
+        System.out.println("----PRE-PERSIST----");
+    }
 
+    @PostPersist
+    public void postPersist() {
+        System.out.println("----POST-PERSIST----");
+    }
 
+    @PreUpdate
+    public void preUpdate() {
+        System.out.println("----PRE-UPDATE----");
+    }
 
+    @PostUpdate
+    public void postUpdate() {
+        System.out.println("----POST-UPDATE----");
+    }
 
+    @PreRemove
+    public void preRemove() {
+        System.out.println("----PRE-REMOVE----");
+    }
 
+    @PostRemove
+    public void postRemove() {
+        System.out.println("----POST-REMOVE----");
+    }
 
 
     @Override
