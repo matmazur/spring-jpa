@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 
 @Transactional
 @Repository
-public class BookDAOImpl implements BookDAO {
+public class BookDAOImpl implements GenericDAO<Book,Long> {
 
     @PersistenceContext
     EntityManager entityManager;
