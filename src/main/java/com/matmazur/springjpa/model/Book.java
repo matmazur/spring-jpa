@@ -6,11 +6,12 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BOOK_ID", unique = true, nullable = false)
+    @GeneratedValue
+    @Column(name = "BOOK_ID")
     private Long bookId;
     private String title;
     private String author;
+    @Column(nullable = false, length = 13, unique = true)
     private String isbn;
 
     @Override
