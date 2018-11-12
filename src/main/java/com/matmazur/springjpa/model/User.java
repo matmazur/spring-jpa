@@ -3,27 +3,29 @@ package com.matmazur.springjpa.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "id_user")
     private Long id;
     private String username;
     private String password;
     private String email;
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_details")
     private UserDetails userDetails;
 
 
     public User() {
     }
 
-    public User(String username, String password, String email, UserDetails userDetails) {
+    public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.userDetails = userDetails;
     }
 
     public Long getId() {
