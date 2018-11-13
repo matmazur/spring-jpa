@@ -1,6 +1,7 @@
 package com.matmazur.springjpa.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "client_order")
@@ -10,15 +11,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
-    private String product;
     private String orderDetails;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private User user;
 
-    public Order(String product, String orderDetails) {
-        this.product = product;
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Product> products;
+
+    public Order(String orderDetails) {
         this.orderDetails = orderDetails;
     }
 
@@ -33,12 +35,12 @@ public class Order {
         this.id = id;
     }
 
-    public String getProduct() {
-        return product;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public String getOrderDetails() {
@@ -61,9 +63,9 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", product='" + product + '\'' +
                 ", orderDetails='" + orderDetails + '\'' +
+                ", user=" + user +
+                ", products=" + products +
                 '}';
     }
-
 }

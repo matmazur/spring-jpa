@@ -1,5 +1,8 @@
 package com.matmazur.springjpa.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,8 +21,8 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_details")
     private UserDetails userDetails;
-
-    @OneToMany(mappedBy = "theUser",fetch = FetchType.EAGER)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
     public User() {
