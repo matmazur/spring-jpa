@@ -13,6 +13,7 @@ public class UserDetails {
     private Long id;
     private String name;
     private String surname;
+
     @OneToOne(mappedBy = "userDetails")
     private User user;
 
