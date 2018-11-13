@@ -9,7 +9,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
+    @Column(name = "id_order")
     private Long id;
     private String orderDetails;
 
@@ -18,7 +18,11 @@ public class Order {
     private User user;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-      private List<Product> products;
+    @JoinTable(name = "order_products",
+            joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id_order")},
+            inverseJoinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "id_product")}
+    )
+    private List<Product> products;
 
     public Order(String orderDetails) {
         this.orderDetails = orderDetails;
