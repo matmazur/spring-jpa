@@ -3,6 +3,7 @@ package com.matmazur.springjpa.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "client_order")
 public class Order {
 
     @Id
@@ -11,7 +12,12 @@ public class Order {
     private Long id;
     private String product;
     private String orderDetails;
-    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    private User theUser;
+
+
 
     @Override
     public String toString() {
@@ -19,14 +25,12 @@ public class Order {
                 "id=" + id +
                 ", product='" + product + '\'' +
                 ", orderDetails='" + orderDetails + '\'' +
-                ", user=" + user +
-                '}';
-    }
+            '}';
+}
 
-    public Order(String product, String orderDetails, User user) {
+    public Order(String product, String orderDetails) {
         this.product = product;
         this.orderDetails = orderDetails;
-        this.user = user;
     }
 
     public Order() {
@@ -56,11 +60,11 @@ public class Order {
         this.orderDetails = orderDetails;
     }
 
-    public User getUser() {
-        return user;
+    public User getTheUser() {
+        return theUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setTheUser(User theUser) {
+        this.theUser = theUser;
     }
 }

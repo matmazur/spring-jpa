@@ -1,10 +1,38 @@
 package com.matmazur.springjpa.DAO;
 
-public interface GenericDAO<C,Long> {
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import java.lang.reflect.ParameterizedType;
 
-    Long add(C someClass);
-    C get(Long id);
-    Long update(C someClass);
-    Long delete(Long id);
+@Transactional
+public abstract class GenericDAO<C, Long> {
 
+    @PersistenceContext
+    EntityManager entityManager;
+    private Class<C> type;
+
+    @SuppressWarnings("unchecked")
+    GenericDAO() {
+        type = (Class<C>) ((ParameterizedType) this.getClass()
+                .getGenericSuperclass())
+                .getActualTypeArguments()[0];
+    }
+
+    public void add(C someClass) {
+        entityManager.persist(someClass);
+    }
+
+    public C get(Long id) {
+        return entityManager.find(type, id);
+    }
+
+    public void update(C someClass) {
+        entityManager.merge(someClass);
+    }
+
+    public void delete(Long id) {
+        C someClass = entityManager.find(type, id);
+        entityManager.remove(someClass);
+    }
 }

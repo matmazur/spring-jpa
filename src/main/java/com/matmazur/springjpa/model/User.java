@@ -1,70 +1,92 @@
 package com.matmazur.springjpa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "clients")
-public class Client implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_client")
+    @Column(name = "id_user")
     private Long id;
-    @Column(name="firstname", nullable=false)
-    private String firstName;
-    @Column(name="lastname", nullable=false)
-    private String lastName;
-    @Column(nullable = false)
-    private String address;
-    @OneToMany
-    @JoinColumn(name = "client_id", referencedColumnName="id_client")
+    private String username;
+    private String password;
+    private String email;
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_details")
+    private UserDetails userDetails;
+
+    @OneToMany(mappedBy = "theUser",fetch = FetchType.EAGER)
     private List<Order> orders;
 
-    Client() {}
+    public User() {
+    }
 
-    public Client(String firstName, String lastName, String address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
-    public String getFirstName() {
-        return firstName;
+
+    public String getUsername() {
+        return username;
     }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+
+    public void setUsername(String username) {
+        this.username = username;
     }
-    public String getLastName() {
-        return lastName;
+
+    public String getPassword() {
+        return password;
     }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+
+    public void setPassword(String password) {
+        this.password = password;
     }
-    public String getAddress() {
-        return address;
+
+    public String getEmail() {
+        return email;
     }
-    public void setAddress(String address) {
-        this.address = address;
+
+    public void setEmail(String email) {
+        this.email = email;
     }
+
     public List<Order> getOrders() {
         return orders;
     }
+
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
+
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
+    }
+
     @Override
     public String toString() {
-        return "Client [id=" + id + ", firstName=" + firstName
-                + ", lastName=" + lastName + ", address=" + address
-                + ", orders=" + orders + "]";
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", userDetails=" + userDetails +
+                '}';
     }
 }
