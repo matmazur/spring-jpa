@@ -15,18 +15,7 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    private User theUser;
-
-
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", product='" + product + '\'' +
-                ", orderDetails='" + orderDetails + '\'' +
-            '}';
-}
+    private User user;
 
     public Order(String product, String orderDetails) {
         this.product = product;
@@ -60,11 +49,21 @@ public class Order {
         this.orderDetails = orderDetails;
     }
 
-    public User getTheUser() {
-        return theUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setTheUser(User theUser) {
-        this.theUser = theUser;
+    public void setUser(User user) {
+        this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", product='" + product + '\'' +
+                ", orderDetails='" + orderDetails + '\'' +
+                '}';
+    }
+
 }

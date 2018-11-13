@@ -7,7 +7,6 @@ import java.util.Objects;
 @Table(name = "user_details")
 public class UserDetails {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user_details")
@@ -17,7 +16,6 @@ public class UserDetails {
     @OneToOne(mappedBy = "userDetails")
     private User user;
 
-
     public UserDetails(String name, String surname) {
         this.name = name;
         this.surname = surname;
@@ -25,7 +23,6 @@ public class UserDetails {
 
     public UserDetails() {
     }
-
 
     @Override
     public boolean equals(Object o) {

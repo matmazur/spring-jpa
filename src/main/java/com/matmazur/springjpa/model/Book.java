@@ -14,7 +14,6 @@ public class Book {
     @Column(nullable = false, length = 13, unique = true)
     private String isbn;
 
-
     @PrePersist
     public void prePersist() {
         System.out.println("----PRE-PERSIST----");
@@ -44,7 +43,6 @@ public class Book {
     public void postRemove() {
         System.out.println("----POST-REMOVE----");
     }
-
 
     @Override
     public String toString() {

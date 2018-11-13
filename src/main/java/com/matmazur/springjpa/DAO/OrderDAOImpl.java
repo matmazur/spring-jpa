@@ -9,5 +9,5 @@ import javax.transaction.Transactional;
 @Transactional
 @Repository
 @DAO(type = DAO.DAOType.ORDER)
-public class OrderDAOImpl extends GenericDAO<Order,Long> {
+public class OrderDAOImpl extends GenericDAO<Order, Long> {
 }

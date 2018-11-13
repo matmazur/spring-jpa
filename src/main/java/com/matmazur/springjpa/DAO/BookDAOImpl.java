@@ -9,6 +9,5 @@ import javax.transaction.Transactional;
 @Transactional
 @Repository
 @DAO(type = DAO.DAOType.BOOK)
-public class BookDAOImpl extends GenericDAO<Book,Long> {
-
+public class BookDAOImpl extends GenericDAO<Book, Long> {
 }
