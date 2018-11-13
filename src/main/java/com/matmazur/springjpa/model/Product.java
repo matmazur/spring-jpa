@@ -1,6 +1,7 @@
 package com.matmazur.springjpa.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -13,6 +14,9 @@ public class Product {
     private String name;
     private Double price;
     private String details;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Order> orders;
 
     public Product() {
     }
@@ -39,6 +43,14 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public String getName() {
