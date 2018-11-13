@@ -17,8 +17,8 @@ public class Order {
     @JoinColumn(name = "client_id")
     private User user;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Product> products;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+      private List<Product> products;
 
     public Order(String orderDetails) {
         this.orderDetails = orderDetails;

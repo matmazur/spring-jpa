@@ -34,14 +34,14 @@ public class SpringJpaApplication {
 
         Product p3 = new Product("Alcohol",24.6,"Drunken much");
         Product p4 = new Product("cheetos",1.6,"oily");
-        List<Product> products2 = new ArrayList<>(Arrays.asList(p1,p2));
+        List<Product> products2 = new ArrayList<>(Arrays.asList(p3,p4));
 
         Order order1 = new Order( "details of first order");
         order1.setProducts(products1);
         order1.setUser(user);
 
         Order order2 = new Order( "details of second order");
-        order1.setProducts(products2);
+        order2.setProducts(products2);
         order2.setUser(user);
 
         user.setUserDetails(details);
