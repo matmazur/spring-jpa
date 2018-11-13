@@ -1,6 +1,7 @@
 package com.matmazur.springjpa.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -17,7 +18,6 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_details")
     private UserDetails userDetails;
-
 
     public User() {
     }

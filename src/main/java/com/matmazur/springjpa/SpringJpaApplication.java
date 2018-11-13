@@ -1,11 +1,8 @@
 package com.matmazur.springjpa;
 
-import com.matmazur.springjpa.DAO.BookDAOImpl;
 import com.matmazur.springjpa.DAO.UserDAOImpl;
-import com.matmazur.springjpa.model.Book;
 import com.matmazur.springjpa.model.User;
 import com.matmazur.springjpa.model.UserDetails;
-import com.matmazur.springjpa.qualifiers.DAO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
