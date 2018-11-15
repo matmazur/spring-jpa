@@ -23,7 +23,7 @@ public class User {
     private UserDetails userDetails;
 
     @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Order> orders;
 
     public void addOrder(Order order) {

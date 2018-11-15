@@ -27,4 +27,9 @@ public class UserDAOImpl extends GenericDAO<User, Long> {
         managedUser.getOrders().remove(1);
     }
 
+    public void changeDetails (User user){
+        User managedUser = get(user.getId());
+managedUser.getOrders().get(0).setOrderDetails("hehre");
+    }
+
 }

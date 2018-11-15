@@ -49,7 +49,13 @@ public class SpringJpaApplication {
         user.addOrder(order1);
         userDAO.add(user);
 
-        userDAO.addOrder(user,order2);
+        userDAO.addOrder(user, order2);
+
+        User usertest = userDAO.get(1L);
+        usertest.getOrders().get(0).setOrderDetails("Changed stuff here!");
+        userDAO.update(usertest);
+
+//        userDAO.removeOrders(user);
 
 
         System.out.println(userDAO.get(1L));
