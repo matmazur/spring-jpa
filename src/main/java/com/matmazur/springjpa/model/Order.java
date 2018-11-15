@@ -13,7 +13,7 @@ public class Order {
     private Long id;
     private String orderDetails;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "client_id")
     private User user;
 
