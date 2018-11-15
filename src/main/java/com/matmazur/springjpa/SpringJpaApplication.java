@@ -50,6 +50,8 @@ public class SpringJpaApplication {
         user.addOrder(order2);
 
         userDAO.add(user);
+        orderDAO.delete(1L);
+        userDAO.delete(1L);
 
 
         System.out.println(userDAO.get(1L));
