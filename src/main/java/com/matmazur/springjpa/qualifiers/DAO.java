@@ -15,7 +15,7 @@ public @interface DAO {
 
 
     enum DAOType {
-        USER, BOOK, ORDER
+        USER, ORDER
     }
 
     public DAOType type();

@@ -28,30 +28,28 @@ public class SpringJpaApplication {
         UserDetails details = new UserDetails("Mike", "Broftlotzki");
 
 
-        Product p1 = new Product("Drugs",44.6,"nothing much");
-        Product p2 = new Product("fries",4.6,"oily much");
-        List<Product> products1 = new ArrayList<>(Arrays.asList(p1,p2));
+        Product p1 = new Product("Drugs", 44.6, "nothing much");
+        Product p2 = new Product("fries", 4.6, "oily much");
+        List<Product> products1 = new ArrayList<>(Arrays.asList(p1, p2));
 
-        Product p3 = new Product("Alcohol",24.6,"Drunken much");
-        Product p4 = new Product("cheetos",1.6,"oily");
-        List<Product> products2 = new ArrayList<>(Arrays.asList(p3,p4));
+        Product p3 = new Product("Alcohol", 24.6, "Drunken much");
+        Product p4 = new Product("cheetos", 1.6, "oily");
+        List<Product> products2 = new ArrayList<>(Arrays.asList(p3, p4));
 
 
-        Order order1 = new Order( "details of first order");
+        Order order1 = new Order("details of first order");
         order1.setProducts(products1);
 
-        Order order2 = new Order( "details of second order");
+        Order order2 = new Order("details of second order");
         order2.setProducts(products2);
 
 
         user.setUserDetails(details);
         user.setOrders(new ArrayList<>());
         user.addOrder(order1);
-        user.addOrder(order2);
-
         userDAO.add(user);
-        orderDAO.delete(1L);
-        userDAO.delete(1L);
+
+        userDAO.addOrder(user,order2);
 
 
         System.out.println(userDAO.get(1L));
