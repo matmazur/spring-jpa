@@ -36,19 +36,21 @@ public class SpringJpaApplication {
         Product p4 = new Product("cheetos",1.6,"oily");
         List<Product> products2 = new ArrayList<>(Arrays.asList(p3,p4));
 
+
         Order order1 = new Order( "details of first order");
         order1.setProducts(products1);
-        order1.setUser(user);
 
         Order order2 = new Order( "details of second order");
         order2.setProducts(products2);
-        order2.setUser(user);
+
 
         user.setUserDetails(details);
+        user.setOrders(new ArrayList<>());
+        user.addOrder(order1);
+        user.addOrder(order2);
+
         userDAO.add(user);
 
-        orderDAO.add(order1);
-        orderDAO.add(order2);
 
         System.out.println(userDAO.get(1L));
         System.out.println(userDAO.get(1L).getOrders());
