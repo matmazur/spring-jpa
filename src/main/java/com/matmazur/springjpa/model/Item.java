@@ -19,29 +19,56 @@ public class Item {
         this.price = price;
     }
 
-    public String getName() {
-        return name;
+    public static Builder builder() {
+        return new Builder();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", producer='" + producer + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getProducer() {
         return producer;
     }
 
-    public void setProducer(String producer) {
-        this.producer = producer;
-    }
-
     public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+
+    public static class Builder {
+
+        private String name;
+        private String producer;
+        private Double price;
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder withProducer(String producer) {
+            this.producer = producer;
+            return this;
+        }
+
+        public Builder withPrice(Double price) {
+            this.price = price;
+            return this;
+        }
+
+        public Item build() {
+            return new Item(name, producer, price);
+        }
     }
-
-
 }

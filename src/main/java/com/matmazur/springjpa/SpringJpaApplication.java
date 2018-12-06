@@ -2,10 +2,7 @@ package com.matmazur.springjpa;
 
 import com.matmazur.springjpa.DAO.OrderDAOImpl;
 import com.matmazur.springjpa.DAO.UserDAOImpl;
-import com.matmazur.springjpa.model.Order;
-import com.matmazur.springjpa.model.Product;
-import com.matmazur.springjpa.model.User;
-import com.matmazur.springjpa.model.UserDetails;
+import com.matmazur.springjpa.model.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -31,8 +28,8 @@ public class SpringJpaApplication {
         Order order1 = new Order("this is first order details");
         Order order2 = new Order("this is second order details");
 
-        order1.setProducts(List.of(p1,p2));
-        order2.setProducts(List.of(p3,p4));
+        order1.setProducts(List.of(p1, p2));
+        order2.setProducts(List.of(p3, p4));
 
         user.setUserDetails(details);
         user.addOrder(order1);
@@ -50,6 +47,10 @@ public class SpringJpaApplication {
         System.out.println(userDAO.get(1L));
         System.out.println(userDAO.get(1L).getOrders());
         System.out.println(userDAO.get(1L).getUserDetails().getUser().getPassword());
+
+
+        Item someItem = Item.builder().withName("Doug").withProducer("Producer").withPrice(1000d).build();
+        System.out.println(someItem);
 
     }
 }
