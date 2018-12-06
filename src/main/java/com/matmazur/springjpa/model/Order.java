@@ -1,6 +1,7 @@
 package com.matmazur.springjpa.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,7 @@ public class Order {
             joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id_order")},
             inverseJoinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "id_product")}
     )
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public Order(String orderDetails) {
         this.orderDetails = orderDetails;

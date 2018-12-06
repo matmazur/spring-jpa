@@ -4,6 +4,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,7 +25,7 @@ public class User {
 
     @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Order> orders;
+    private List<Order> orders = new ArrayList<>();
 
     public void addOrder(Order order) {
         order.setUser(this);
