@@ -19,6 +19,9 @@ public class Item {
         this.price = price;
     }
 
+    public Item() {
+    }
+
     public static Builder builder() {
         return new Builder();
     }
