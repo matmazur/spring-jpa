@@ -23,5 +23,9 @@ public void deleteAll(){
 
 }
 
+public List<Item> customGet(String yourQuery){
 
+    TypedQuery<Item> query = entityManager.createQuery(yourQuery,Item.class);
+    return query.getResultList();
+}
 }
