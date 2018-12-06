@@ -13,12 +13,12 @@ import java.util.List;
 public class ItemDAOImpl extends GenericDAO<Item, Long> {
 
     public List<Item> getAll() {
-        TypedQuery<Item> getAllQuery = entityManager.createQuery("SELECT i FROM Item i ", Item.class);
+        TypedQuery<Item> getAllQuery = entityManager.createNamedQuery("Item.getAll",Item.class);
         return getAllQuery.getResultList();
     }
 
     public void deleteAll() {
-        Query query = entityManager.createQuery("DELETE FROM Item ig");
+        Query query = entityManager.createNamedQuery("Item.deleteAll");
         query.executeUpdate();
     }
 

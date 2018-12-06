@@ -2,6 +2,11 @@ package com.matmazur.springjpa.model;
 
 import javax.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "Item.getAll", query ="SELECT i FROM Item i "),
+        @NamedQuery(name = "Item.deleteAll", query ="DELETE FROM Item i"),
+
+})
 @Entity
 public class Item {
 
