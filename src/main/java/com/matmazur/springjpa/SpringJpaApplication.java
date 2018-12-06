@@ -62,7 +62,9 @@ public class SpringJpaApplication {
         itemDao.add(chocolate);
         itemDao.add(ciggaretes);
         itemDao.add(drugs);
-
+        System.out.println(itemDao.getAll());
+        System.out.println(itemDao.customGet("SELECT i FROM Item i WHERE i.price>5 order by i.price ASC"));
+        itemDao.deleteAll();
         System.out.println(itemDao.getAll());
     }
 }

@@ -3,6 +3,7 @@ package com.matmazur.springjpa.DAO;
 import com.matmazur.springjpa.model.Item;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -17,7 +18,7 @@ public class ItemDAOImpl extends GenericDAO<Item, Long> {
     }
 
     public void deleteAll() {
-        TypedQuery<Item> query = entityManager.createQuery("DELETE FROM Item i", Item.class);
+        Query query = entityManager.createQuery("DELETE FROM Item ig");
         query.executeUpdate();
     }
 
