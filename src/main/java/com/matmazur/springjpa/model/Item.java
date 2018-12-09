@@ -6,7 +6,6 @@ import javax.persistence.*;
         @NamedQuery(name = "Item.getAll", query ="SELECT i FROM Item i "),
         @NamedQuery(name = "Item.deleteAll", query ="DELETE FROM Item i"),
         @NamedQuery(name = "Item.findByName", query = "SELECT i FROM Item i WHERE i.name=:name")
-
 })
 @Entity
 public class Item {

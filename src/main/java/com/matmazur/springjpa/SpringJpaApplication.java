@@ -63,6 +63,10 @@ public class SpringJpaApplication {
         itemDao.add(ciggaretes);
         itemDao.add(drugs);
         System.out.println(itemDao.getAll());
+
+        System.out.println("using :name parameter in named query findByName");
+        System.out.println(itemDao.findByName("chocolate"));
+        System.out.println("--------");
         System.out.println(itemDao.customGet("SELECT i FROM Item i WHERE i.price>5 order by i.price ASC"));
         itemDao.deleteAll();
         System.out.println(itemDao.getAll());

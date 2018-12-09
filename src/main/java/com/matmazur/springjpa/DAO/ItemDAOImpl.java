@@ -13,7 +13,7 @@ import java.util.List;
 public class ItemDAOImpl extends GenericDAO<Item, Long> {
 
     public List<Item> getAll() {
-        TypedQuery<Item> getAllQuery = entityManager.createNamedQuery("Item.getAll",Item.class);
+        TypedQuery<Item> getAllQuery = entityManager.createNamedQuery("Item.getAll", Item.class);
         return getAllQuery.getResultList();
     }
 
@@ -26,5 +26,13 @@ public class ItemDAOImpl extends GenericDAO<Item, Long> {
 
         TypedQuery<Item> query = entityManager.createQuery(yourQuery, Item.class);
         return query.getResultList();
+    }
+
+    public Item findByName(String name) {
+
+        TypedQuery<Item> query = entityManager.createNamedQuery("Item.findByName", Item.class);
+        query.setParameter("name", name);
+        List<Item> list = query.getResultList();
+        return list.get(0);
     }
 }
