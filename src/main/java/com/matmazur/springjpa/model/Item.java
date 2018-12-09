@@ -5,6 +5,7 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "Item.getAll", query ="SELECT i FROM Item i "),
         @NamedQuery(name = "Item.deleteAll", query ="DELETE FROM Item i"),
+        @NamedQuery(name = "Item.findByName", query = "SELECT i FROM Item i WHERE i.name=:name")
 
 })
 @Entity
